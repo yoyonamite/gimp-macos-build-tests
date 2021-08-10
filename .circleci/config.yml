@@ -22,9 +22,9 @@ jobs:
             name: Setup 10.12 SDK
             command: |
               cd /Library/Developer/CommandLineTools/SDKs
-              sudo curl -L 'https://github.com/phracker/MacOSX-SDKs/releases/download/10.15/MacOSX10.12.sdk.tar.xz' | sudo tar -xzf -
-              echo 'export SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX10.12.sdk' > ~/.profile
-              echo 'export MACOSX_DEPLOYMENT_TARGET=10.12' >> ~/.profile
+              sudo curl -L 'https://github.com/phracker/MacOSX-SDKs/releases/download/11.0-11.1/MacOSX11.1.sdk.tar.xz' | sudo tar -xzf -
+              echo 'export SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk' > ~/.profile
+              echo 'export MACOSX_DEPLOYMENT_TARGET=11.1' >> ~/.profile
         - restore_cache:
             keys:
               - jhbuild-v12
@@ -36,7 +36,7 @@ jobs:
               curl https://gitlab.gnome.org/samm-git/gtk-osx/raw/gimp/gtk-osx-setup.sh > gtk-osx-setup.sh
               chmod +x gtk-osx-setup.sh
               echo 'export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH:$HOME/.new_local/bin"' >> ~/.profile
-              echo 'export ARCHFLAGS="-arch x86_64"' >> ~/.profile
+              echo 'export ARCHFLAGS="-arch x86_64 -arch arm64"' >> ~/.profile
               source ~/.profile
               PIPENV_YES=1 ./gtk-osx-setup.sh
               $HOME/.new_local/bin/jhbuild bootstrap-gtk-osx-gimp
