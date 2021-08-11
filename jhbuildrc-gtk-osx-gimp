@@ -156,7 +156,7 @@ environ_prepend('LDFLAGS', "-arch x86_64 -arch arm64")
 # os.environ["CC"] = "/usr/bin/gcc-4.0"
 
 # use our modulset
-moduleset = 'https://gitlab.gnome.org/yoyonamite/gtk-osx/raw/gimp/modulesets-stable/gtk-osx.modules'
+moduleset = 'https://gitlab.gnome.org/yoyonamite/gtk-osx/-/raw/arm64/modulesets-stable/gtk-osx.modules'
 
 # force python 3.6 for the libxml2 to avoid build issues
 module_extra_env['libxml2'] = { "ac_cv_path_PYTHON": "python3.6" }
@@ -194,7 +194,7 @@ class _cmd_bootstrap_gtk_osx_gimp(jhbuild.commands.base.cmd_build):
                                           moduleset + '.modules'))):
             config.moduleset = moduleset
         else:
-            config.moduleset = 'https://gitlab.gnome.org/yoyonamite/gtk-osx/raw/gimp/modulesets-stable/bootstrap.modules'
+            config.moduleset = 'https://gitlab.gnome.org/yoyonamite/gtk-osx/-/raw/arm64/modulesets-stable/bootstrap.modules'
 
         args = ['meta-bootstrap']
 
