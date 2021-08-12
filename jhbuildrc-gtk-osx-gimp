@@ -109,7 +109,7 @@ if _jhb is None:
 
 #  Set up a particular target and SDK: For default operation, set the
 # architecture and SDK for the native machine:
-setup_sdk("10.9",["x86_64", "arm64"])
+setup_sdk("10.9","arm64")
 
 # enable optimization
 
@@ -178,6 +178,8 @@ module_extra_env['pygtk'] = { 'CFLAGS' : '-Wno-error=implicit-function-declarati
 # probably pull out and check for arm64
 append_autogenargs('libnettle', '--build=aarch64-apple-darwin`uname -r`')
 append_autogenargs('libde265', '--build=aarch64-apple-darwin`uname -r`')
+
+autogenargs = '--host=x86_64 --build=arm64'
 
 class _cmd_bootstrap_gtk_osx_gimp(jhbuild.commands.base.cmd_build):
     doc = 'Build buildsystem tools not provided by MacOS.'
