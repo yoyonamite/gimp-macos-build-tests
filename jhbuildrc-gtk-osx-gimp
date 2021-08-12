@@ -200,7 +200,7 @@ class _cmd_bootstrap_gtk_osx_gimp(jhbuild.commands.base.cmd_build):
                                           moduleset + '.modules'))):
             config.moduleset = moduleset
         else:
-            config.moduleset = 'https://gitlab.gnome.org/yoyonamite/gtk-osx/-/raw/arm64/modulesets-stable/bootstrap.modules'
+            config.moduleset = 'https://gitlab.gnome.org/yoyonamite/gtk-osx/-/raw/arm64-cross/modulesets-stable/bootstrap.modules'
 
         args = ['meta-bootstrap']
 
