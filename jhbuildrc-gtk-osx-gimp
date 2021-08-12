@@ -113,9 +113,10 @@ setup_sdk("10.9","arm64")
 
 # enable optimization
 
-environ_prepend('CFLAGS', "-O3")
-environ_prepend('CXXFLAGS', "-O3")
-environ_prepend('OBJCFLAGS', "-O3")
+environ_prepend('CFLAGS', "-O3 -arch x86_64 -arch arm64")
+environ_prepend('CXXFLAGS', "-O3 -arch x86_64 -arch arm64")
+environ_prepend('OBJCFLAGS', "-O3 -arch x86_64 -arch arm64")
+environ_prepend('LDFLAGS', "-arch x86_64 -arch arm64")
 
 # Comment out the previous and uncomment this one to build for all
 # systems running SnowLeopard and later:
