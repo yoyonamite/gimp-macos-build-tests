@@ -48,6 +48,11 @@ jobs:
               - ~/gtk
               - ~/.config
             key: jhbuild-v12
+        - run:
+            name: Package bin
+            command: tar cvzf bin.tar.gz gtk/inst/bin
+        - store_artifacts:
+            path: bin.tar.gz
 
 workflows:
   version: 2
