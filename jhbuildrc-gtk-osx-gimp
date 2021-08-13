@@ -113,10 +113,11 @@ setup_sdk("10.9","arm64")
 
 # enable optimization
 
-environ_prepend('CFLAGS', "-O3 -arch x86_64 -arch arm64")
-environ_prepend('CXXFLAGS', "-O3 -arch x86_64 -arch arm64")
-environ_prepend('OBJCFLAGS', "-O3 -arch x86_64 -arch arm64")
-environ_prepend('LDFLAGS', "-arch x86_64 -arch arm64")
+environ_prepend('CFLAGS', "-O3 -arch arm64")
+environ_prepend('CXXFLAGS', "-O3 -arch arm64")
+environ_prepend('OBJCFLAGS', "-O3 -arch arm64")
+environ_prepend('CPPFLAGS', "-arch arm64")
+environ_prepend('LDFLAGS', "-arch arm64")
 
 # Comment out the previous and uncomment this one to build for all
 # systems running SnowLeopard and later:
@@ -174,12 +175,6 @@ module_extra_env['meson'] = { "LC_ALL": "en_US.UTF-8" }
 
 # DJM - c files built from defs are not including all necessary headers - ignore that
 module_extra_env['pygtk'] = { 'CFLAGS' : '-Wno-error=implicit-function-declaration' }
-
-# probably pull out and check for arm64
-# append_autogenargs('libnettle', '--build=aarch64-apple-darwin`uname -r`')
-# append_autogenargs('libde265', '--build=aarch64-apple-darwin`uname -r`')
-
-autogenargs = '--host=x86_64 --build=aarch64-apple-darwin`uname -r`'
 
 class _cmd_bootstrap_gtk_osx_gimp(jhbuild.commands.base.cmd_build):
     doc = 'Build buildsystem tools not provided by MacOS.'
