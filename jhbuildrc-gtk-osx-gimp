@@ -176,7 +176,7 @@ module_extra_env['meson'] = { "LC_ALL": "en_US.UTF-8" }
 # DJM - c files built from defs are not including all necessary headers - ignore that
 module_extra_env['pygtk'] = { 'CFLAGS' : '-Wno-error=implicit-function-declaration' }
 
-autogenargs = '--build=x86_64 --host=x86_64'
+autogenargs = '--build=x86_64 --host=aarch64'
 
 class _cmd_bootstrap_gtk_osx_gimp(jhbuild.commands.base.cmd_build):
     doc = 'Build buildsystem tools not provided by MacOS.'
